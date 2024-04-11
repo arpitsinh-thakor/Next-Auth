@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
         const {token} = reqBody
         console.log(token)
 
-        const user = await User.findOne({verfiyToken: token, verifiyTokenExpire: {$gt: Date.now()}})
+        const user = await User.findOne({verifyToken: token, verifyTokenExpire: {$gt: Date.now()}})
         if(!user){
             return NextResponse.json({
                 message: 'Invalid token or token expired',
